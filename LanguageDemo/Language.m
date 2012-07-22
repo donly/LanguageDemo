@@ -7,7 +7,7 @@ static NSBundle *bundle = nil;
 +(void)initialize {
     NSUserDefaults* defs = [NSUserDefaults standardUserDefaults];
     NSArray* languages = [defs objectForKey:@"AppleLanguages"];
-    NSString *current = [[languages objectAtIndex:0] retain];
+    NSString *current = [languages objectAtIndex:0];
     [self setLanguage:current];
     
 }

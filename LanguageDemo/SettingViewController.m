@@ -37,15 +37,13 @@ enum {
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-//    self.title = NSLocalizedString(@"setting", @"设置");
-    self.title = [Language get:@"setting" alter:@"草"];
+
 //    [[NSBundle mainBundle] localizedStringForKey:(key) value:@"" table:nil]
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [self.tableView reloadData];
-    self.title = [Language get:@"setting" alter:@"草"];
+    self.title = [Language get:@"setting" alter:@"Setting"];
 }
 
 - (void)viewDidUnload
@@ -86,8 +84,7 @@ enum {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     
-//    cell.textLabel.text = NSLocalizedString(@"Language_setting", @"语言设置");
-    cell.textLabel.text = [Language get:@"Language_setting" alter:@"草"];
+    cell.textLabel.text = [Language get:@"Language_setting" alter:@"Language Setting"];
     
     return cell;
 }

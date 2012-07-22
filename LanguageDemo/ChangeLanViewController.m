@@ -9,8 +9,6 @@
 #import "ChangeLanViewController.h"
 #import "Language.h"
 
-#define kLangKey @"Lankey"
-
 @implementation ChangeLanViewController
 
 @synthesize langs;
@@ -30,9 +28,12 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.title = NSLocalizedString(@"Language_setting", @"语言设置");
     
     self.langs = [NSArray arrayWithObjects:@"中文", @"Englinsh", nil];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    self.title = [Language get:@"Language_setting" alter:@"Language Setting"];
 }
 
 - (void)viewDidUnload
@@ -72,17 +73,22 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    NSInteger langId = [[[NSUserDefaults standardUserDefaults] objectForKey:kLangKey] intValue];
-    
-    if (langId == indexPath.row) {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    }
-    else {
-        cell.accessoryType = UITableViewCellAccessoryNone;
-    }
-    
+    cell.accessoryType = UITableViewCellAccessoryNone;
     cell.textLabel.text = [langs objectAtIndex:indexPath.row];
     
+    // Current Language
+    NSString *lang = [[[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"] objectAtIndex:0];
+    
+    if ([lang isEqualToString:@"zh-Hans"]) {  // If Simple Chinise
+        if (indexPath.row == 0) {
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        }
+    }
+    else {  // If English
+        if (indexPath.row == 1) {
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        }
+    }
     
     return cell;
 }
@@ -133,26 +139,29 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     [cell setSelected:NO animated:YES];
     
-    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:indexPath.row] forKey:kLangKey];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    
     switch (indexPath.row) {
         case 0:
         {
+            [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:@"zh-Hans", @"en", nil]
+                                                      forKey:@"AppleLanguages"];
             [Language setLanguage:@"zh-Hans"];
             break;
         }
         case 1:
         {
+            [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:@"en", @"zh-Hans", nil]
+                                                      forKey:@"AppleLanguages"];
             [Language setLanguage:@"en"];
             break;
         }
         default:
             break;
     }
+
+    [[NSUserDefaults standardUserDefaults] synchronize];
     
-    self.title = [Language get:@"Language_setting" alter:@"草"];
-    self.navigationController.navigationBar.backItem.title = [Language get:@"setting" alter:@"草"];
+    self.title = [Language get:@"Language_setting" alter:@"Language Setting"];
+    self.navigationController.navigationBar.backItem.title = [Language get:@"setting" alter:@"Setting"];
 
     [tableView reloadData];
 }

@@ -13,6 +13,12 @@
 		F22F9FF315BAC592009B3C39 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F22F9FF115BAC592009B3C39 /* InfoPlist.strings */; };
 		F22F9FF515BAC592009B3C39 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F22F9FF415BAC592009B3C39 /* main.m */; };
 		F22F9FF915BAC592009B3C39 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F22F9FF815BAC592009B3C39 /* AppDelegate.m */; };
+		F22FA00215BAC5FC009B3C39 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F22FA00015BAC5FC009B3C39 /* SettingViewController.m */; };
+		F22FA00315BAC5FC009B3C39 /* SettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F22FA00115BAC5FC009B3C39 /* SettingViewController.xib */; };
+		F22FA00715BAC87B009B3C39 /* ChangeLanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F22FA00515BAC87B009B3C39 /* ChangeLanViewController.m */; };
+		F22FA00815BAC87B009B3C39 /* ChangeLanViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F22FA00615BAC87B009B3C39 /* ChangeLanViewController.xib */; };
+		F22FA01015BAD8C9009B3C39 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = F22FA01215BAD8C9009B3C39 /* Localizable.strings */; };
+		F22FA01615BADC91009B3C39 /* Language.m in Sources */ = {isa = PBXBuildFile; fileRef = F22FA01515BADC91009B3C39 /* Language.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +26,22 @@
 		F22F9FE815BAC592009B3C39 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F22F9FEA15BAC592009B3C39 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F22F9FEC15BAC592009B3C39 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		F22F9FF015BAC592009B3C39 /* LanguageDemo-Info.plist */ = {isa = PBXFileReference; path = "LanguageDemo-Info.plist"; sourceTree = "<group>"; };
+		F22F9FF015BAC592009B3C39 /* LanguageDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "LanguageDemo-Info.plist"; sourceTree = "<group>"; };
 		F22F9FF215BAC592009B3C39 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F22F9FF415BAC592009B3C39 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		F22F9FF615BAC592009B3C39 /* LanguageDemo-Prefix.pch */ = {isa = PBXFileReference; path = "LanguageDemo-Prefix.pch"; sourceTree = "<group>"; };
-		F22F9FF715BAC592009B3C39 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		F22F9FF615BAC592009B3C39 /* LanguageDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LanguageDemo-Prefix.pch"; sourceTree = "<group>"; };
+		F22F9FF715BAC592009B3C39 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F22F9FF815BAC592009B3C39 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F22F9FFF15BAC5FC009B3C39 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		F22FA00015BAC5FC009B3C39 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		F22FA00115BAC5FC009B3C39 /* SettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingViewController.xib; sourceTree = "<group>"; };
+		F22FA00415BAC87B009B3C39 /* ChangeLanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeLanViewController.h; sourceTree = "<group>"; };
+		F22FA00515BAC87B009B3C39 /* ChangeLanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeLanViewController.m; sourceTree = "<group>"; };
+		F22FA00615BAC87B009B3C39 /* ChangeLanViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangeLanViewController.xib; sourceTree = "<group>"; };
+		F22FA01115BAD8C9009B3C39 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		F22FA01315BAD8E1009B3C39 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		F22FA01415BADC90009B3C39 /* Language.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Language.h; sourceTree = "<group>"; };
+		F22FA01515BADC91009B3C39 /* Language.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Language.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +91,15 @@
 				F22F9FF715BAC592009B3C39 /* AppDelegate.h */,
 				F22F9FF815BAC592009B3C39 /* AppDelegate.m */,
 				F22F9FEF15BAC592009B3C39 /* Supporting Files */,
+				F22F9FFF15BAC5FC009B3C39 /* SettingViewController.h */,
+				F22FA00015BAC5FC009B3C39 /* SettingViewController.m */,
+				F22FA00115BAC5FC009B3C39 /* SettingViewController.xib */,
+				F22FA00415BAC87B009B3C39 /* ChangeLanViewController.h */,
+				F22FA00515BAC87B009B3C39 /* ChangeLanViewController.m */,
+				F22FA00615BAC87B009B3C39 /* ChangeLanViewController.xib */,
+				F22FA01215BAD8C9009B3C39 /* Localizable.strings */,
+				F22FA01415BADC90009B3C39 /* Language.h */,
+				F22FA01515BADC91009B3C39 /* Language.m */,
 			);
 			path = LanguageDemo;
 			sourceTree = "<group>";
@@ -125,6 +150,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				"zh-Hans",
 			);
 			mainGroup = F22F9FD915BAC591009B3C39;
 			productRefGroup = F22F9FE515BAC592009B3C39 /* Products */;
@@ -142,6 +168,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F22F9FF315BAC592009B3C39 /* InfoPlist.strings in Resources */,
+				F22FA00315BAC5FC009B3C39 /* SettingViewController.xib in Resources */,
+				F22FA00815BAC87B009B3C39 /* ChangeLanViewController.xib in Resources */,
+				F22FA01015BAD8C9009B3C39 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,6 +183,9 @@
 			files = (
 				F22F9FF515BAC592009B3C39 /* main.m in Sources */,
 				F22F9FF915BAC592009B3C39 /* AppDelegate.m in Sources */,
+				F22FA00215BAC5FC009B3C39 /* SettingViewController.m in Sources */,
+				F22FA00715BAC87B009B3C39 /* ChangeLanViewController.m in Sources */,
+				F22FA01615BADC91009B3C39 /* Language.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,6 +198,15 @@
 				F22F9FF215BAC592009B3C39 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F22FA01215BAD8C9009B3C39 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F22FA01115BAD8C9009B3C39 /* en */,
+				F22FA01315BAD8E1009B3C39 /* zh-Hans */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -7,20 +7,18 @@
 //
 
 #import "ChangeLanViewController.h"
+#import "Language.h"
 
-@interface ChangeLanViewController ()
-
-@end
+#define kLangKey @"Lankey"
 
 @implementation ChangeLanViewController
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+@synthesize langs;
+
+- (void)dealloc {
+    [langs release];
+    
+    [super dealloc];
 }
 
 - (void)viewDidLoad
@@ -32,10 +30,14 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    self.title = NSLocalizedString(@"Language_setting", @"语言设置");
+    
+    self.langs = [NSArray arrayWithObjects:@"中文", @"Englinsh", nil];
 }
 
 - (void)viewDidUnload
 {
+    [self setLangs:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -50,16 +52,14 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return 2;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -68,6 +68,21 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+    }
+    
+    NSInteger langId = [[[NSUserDefaults standardUserDefaults] objectForKey:kLangKey] intValue];
+    
+    if (langId == indexPath.row) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
+    else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+    
+    cell.textLabel.text = [langs objectAtIndex:indexPath.row];
+    
     
     return cell;
 }
@@ -115,14 +130,31 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [cell setSelected:NO animated:YES];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:indexPath.row] forKey:kLangKey];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    switch (indexPath.row) {
+        case 0:
+        {
+            [Language setLanguage:@"zh-Hans"];
+            break;
+        }
+        case 1:
+        {
+            [Language setLanguage:@"en"];
+            break;
+        }
+        default:
+            break;
+    }
+    
+    self.title = [Language get:@"Language_setting" alter:@"草"];
+    self.navigationController.navigationBar.backItem.title = [Language get:@"setting" alter:@"草"];
+
+    [tableView reloadData];
 }
 
 @end

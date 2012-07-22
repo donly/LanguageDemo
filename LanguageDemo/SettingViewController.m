@@ -8,9 +8,14 @@
 
 #import "SettingViewController.h"
 
-@interface SettingViewController ()
+#import "ChangeLanViewController.h"
+#import "Language.h"
 
-@end
+enum {
+    kSectionLanguage,
+    kSectionCount,
+};
+
 
 @implementation SettingViewController
 
@@ -32,6 +37,15 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+//    self.title = NSLocalizedString(@"setting", @"设置");
+    self.title = [Language get:@"setting" alter:@"草"];
+//    [[NSBundle mainBundle] localizedStringForKey:(key) value:@"" table:nil]
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self.tableView reloadData];
+    self.title = [Language get:@"setting" alter:@"草"];
 }
 
 - (void)viewDidUnload
@@ -50,16 +64,14 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return kSectionCount;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -68,6 +80,14 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     // Configure the cell...
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell.selectionStyle = UITableViewCellSelectionStyleBlue;
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
+    
+//    cell.textLabel.text = NSLocalizedString(@"Language_setting", @"语言设置");
+    cell.textLabel.text = [Language get:@"Language_setting" alter:@"草"];
     
     return cell;
 }
@@ -116,13 +136,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    [cell setSelected:NO animated:YES];
+    
+    ChangeLanViewController *vc = [[ChangeLanViewController alloc] initWithNibName:@"ChangeLanViewController"
+                                                                            bundle:nil];
+    [self.navigationController pushViewController:vc animated:YES];
+    [vc release];
 }
 
 @end

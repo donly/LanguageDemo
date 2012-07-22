@@ -10,4 +10,6 @@
 
 @interface ChangeLanViewController : UITableViewController
 
+@property (nonatomic, retain) NSArray *langs;
+
 @end
